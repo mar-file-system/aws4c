@@ -67,7 +67,9 @@ include_HEADERS = aws4c.h aws4c_extra.h
 
 lib_LIBRARIES = libaws4c.a libaws4c_extra.a
 libaws4c_a_SOURCES = aws4c.c
+libaws4c_a_CFLAGS  = @AWSXML_CFLAGS@
 libaws4c_extra_a_SOURCES = aws4c_extra.c
+libaws4c_extra_a_CFLAGS  = @AWSXML_CFLAGS@
 
 
 # ---
@@ -78,24 +80,25 @@ bin_SCRIPTS =
 check_PROGRAMS = s3_delete s3_get s3_put sqs_example test_aws
 
 s3_delete_SOURCES = s3_delete.c
-s3_delete_LDADD = aws4c.a
-s3_delete_LDFLAGS = -laws4c
+s3_delete_LDADD   = libaws4c.a libaws4c_extra.a
+s3_delete_LDFLAGS = -laws4c -laws4c_extra -lcrypto `curl-config --libs` @AWSXML_LIBS@
 
 s3_get_SOURCES = s3_get.c
-s3_get_LDADD = aws4c.a
-s3_get_LDFLAGS = -laws4c
+s3_get_LDADD   = libaws4c.a libaws4c_extra.a
+s3_get_LDFLAGS = -laws4c -laws4c_extra -lcrypto `curl-config --libs` @AWSXML_LIBS@
 
 s3_put_SOURCES = s3_put.c
-s3_put_LDADD = aws4c.a
-s3_put_LDFLAGS = -laws4c
+s3_put_LDADD   = libaws4c.a libaws4c_extra.a
+s3_put_LDFLAGS = -laws4c -laws4c_extra -lcrypto `curl-config --libs` @AWSXML_LIBS@
 
 sqs_example_SOURCES = sqs_example.c
-sqs_example_LDADD = aws4c.a
-sqs_example_LDFLAGS = -laws4c
+sqs_example_LDADD   = libaws4c.a libaws4c_extra.a
+sqs_example_LDFLAGS = -laws4c -laws4c_extra -lcrypto `curl-config --libs` @AWSXML_LIBS@
 
 test_aws_SOURCES = test_aws.c
-test_aws_LDADD = aws4c.a
-test_aws_LDFLAGS = -laws4c
+test_aws_CFLAGS  = @AWSXML_CFLAGS@
+test_aws_LDADD   = libaws4c.a libaws4c_extra.a
+test_aws_LDFLAGS = -laws4c -laws4c_extra -lcrypto `curl-config --libs` @AWSXML_LIBS@
 
 TESTS = 
 

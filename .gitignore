@@ -8,14 +8,21 @@ sqs_example
 *.a
 *.in
 *.o
+.deps/*
 aclocal.m4
 autom4te.cache/*
+aws4c_auto_config.h
 compile
 configure
+config.log
+config.status
 depcomp
 install-sh
+Makefile
 missing
+stamp-h1
 test-driver
+test-suite.log
 test_aws
 
 /.svn/

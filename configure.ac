@@ -57,7 +57,6 @@
 
 AC_PREREQ([2.69])
 AC_INIT([AWS4C], [1.0], [gransom@lanl.gov])
-AC_CONFIG_SRCDIR([COPYRIGHT.h])
 AC_CONFIG_HEADERS([aws4c_auto_config.h])
 AM_INIT_AUTOMAKE
 
@@ -83,6 +82,10 @@ AC_TYPE_UINT8_T
 
 
 AC_CHECK_LIB([pthread], [pthread_create], [], [AC_MSG_ERROR(["Could not locate libpthread!"])])
+
+PKG_CHECK_MODULES(AWSXML, libxml-2.0)
+AC_SUBST(AWSXML_CFLAGS)
+AC_SUBST(AWSXML_LIBS)
 
 AC_CONFIG_FILES([Makefile])
 AC_OUTPUT
