@@ -5,6 +5,19 @@ s3_put
 sqs_example
 *.tmp
 
-/aws4c.o
+*.a
+*.in
+*.o
+aclocal.m4
+autom4te.cache/*
+compile
+configure
+depcomp
+install-sh
+missing
+test-driver
+test_aws
+
 /.svn/
 .idea
+
