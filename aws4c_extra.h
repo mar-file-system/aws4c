@@ -8,8 +8,8 @@ extern "C" {
 
 #include "aws4c.h"
 
-#include <libxml2/libxml/parser.h>      // from libxml2
-#include <libxml2/libxml/tree.h>
+#include <libxml/parser.h>      // from libxml2
+#include <libxml/tree.h>
 
 /* display a simple error message (i.e. errno is not set) and terminate execution */
 #define AWS4C_ERR(MSG)                                                  \
