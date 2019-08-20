@@ -45,8 +45,6 @@
 #MarFS was reviewed and released by LANL under Los Alamos Computer Code identifier:
 #LA-CC-15-039.
 #
-#These erasure utilites make use of the Intel Intelligent Storage Acceleration Library (Intel ISA-L), which can be found at https://github.com/01org/isa-l and is under its own license.
-#
 #MarFS uses libaws4c for Amazon S3 object communication. The original version
 #is at https://aws.amazon.com/code/Amazon-S3/2601 and under the LGPL license.
 #LANL added functionality to the original work. The original work plus
@@ -81,19 +79,19 @@ check_PROGRAMS = s3_delete s3_get s3_put sqs_example test_aws
 
 s3_delete_SOURCES = s3_delete.c
 s3_delete_LDADD   = libaws4c.a libaws4c_extra.a
-s3_delete_LDFLAGS = -laws4c -laws4c_extra -lcrypto `curl-config --libs` @AWSXML_LIBS@
+s3_delete_LDFLAGS = -laws4c -laws4c_extra -lcrypto `curl-config --libs`
 
 s3_get_SOURCES = s3_get.c
 s3_get_LDADD   = libaws4c.a libaws4c_extra.a
-s3_get_LDFLAGS = -laws4c -laws4c_extra -lcrypto `curl-config --libs` @AWSXML_LIBS@
+s3_get_LDFLAGS = -laws4c -laws4c_extra -lcrypto `curl-config --libs`
 
 s3_put_SOURCES = s3_put.c
 s3_put_LDADD   = libaws4c.a libaws4c_extra.a
-s3_put_LDFLAGS = -laws4c -laws4c_extra -lcrypto `curl-config --libs` @AWSXML_LIBS@
+s3_put_LDFLAGS = -laws4c -laws4c_extra -lcrypto `curl-config --libs`
 
 sqs_example_SOURCES = sqs_example.c
 sqs_example_LDADD   = libaws4c.a libaws4c_extra.a
-sqs_example_LDFLAGS = -laws4c -laws4c_extra -lcrypto `curl-config --libs` @AWSXML_LIBS@
+sqs_example_LDFLAGS = -laws4c -laws4c_extra -lcrypto `curl-config --libs`
 
 test_aws_SOURCES = test_aws.c
 test_aws_CFLAGS  = @AWSXML_CFLAGS@
