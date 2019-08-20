@@ -66,13 +66,14 @@ AC_PROG_CC
 AC_PROG_RANLIB
 
 # Checks for header files.
-AC_CHECK_HEADERS( [ctype.h curl/curl.h errno.h getopt.h openssl/bio.h openssl/buffer.h openssl/evp.h openssl/hmac.h pthread.h pwd.h semaphore.h stdarg.h stdio.h stdlib.h string.h sys/stat.h sys/time.h sys/types.h time.h unistd.h], [], [AC_MSG_ERROR(["Failed to locate some required header files!  See previous errors."])] )
+AC_CHECK_HEADERS( [ctype.h curl/curl.h errno.h getopt.h openssl/bio.h openssl/buffer.h openssl/evp.h openssl/hmac.h pwd.h semaphore.h stdarg.h stdio.h stdlib.h string.h sys/stat.h sys/time.h sys/types.h time.h unistd.h], [], [AC_MSG_ERROR(["Failed to locate some required header files!  See previous errors."])] )
+AC_CHECK_HEADERS( [pthread.h] )
 
 # Checks for library functions.
 AC_CHECK_FUNCS([memset strerror strtoul strtoull malloc])
 
 
-AC_CHECK_LIB([pthread], [pthread_create], [], [AC_MSG_ERROR(["Could not locate libpthread!"])])
+AC_CHECK_LIB([pthread], [pthread_create], [], [AC_MSG_WARN(["Failed to locate libpthread, which will prevent certian test programs from building."])])
 
 PKG_CHECK_MODULES(AWSXML, libxml-2.0)
 AC_SUBST(AWSXML_CFLAGS)

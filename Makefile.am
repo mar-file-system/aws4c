@@ -75,7 +75,7 @@ bin_PROGRAMS =
 # ---
 bin_SCRIPTS = 
 # ---
-check_PROGRAMS = s3_delete s3_get s3_put sqs_example test_aws
+check_PROGRAMS = s3_delete s3_get s3_put sqs_example
 
 s3_delete_SOURCES = s3_delete.c
 s3_delete_LDADD   = libaws4c.a libaws4c_extra.a
@@ -93,6 +93,7 @@ sqs_example_SOURCES = sqs_example.c
 sqs_example_LDADD   = libaws4c.a libaws4c_extra.a
 sqs_example_LDFLAGS = -laws4c -laws4c_extra -lcrypto `curl-config --libs`
 
+check_PROGRAMS += test_aws
 test_aws_SOURCES = test_aws.c
 test_aws_CFLAGS  = @AWSXML_CFLAGS@
 test_aws_LDADD   = libaws4c.a libaws4c_extra.a
