@@ -66,19 +66,10 @@ AC_PROG_CC
 AC_PROG_RANLIB
 
 # Checks for header files.
-AC_CHECK_HEADERS([ctype.h curl/curl.h errno.h getopt.h libxml2/libxml/parser.h libxml2/libxml/tree.h openssl/bio.h openssl/buffer.h openssl/evp.h openssl/hmac.h pthread.h pwd.h semaphore.h stdarg.h stdio.h stdlib.h string.h sys/stat.h sys/time.h sys/types.h time.h unistd.h])
-
-# Checks for typedefs, structures, and compiler characteristics.
-AC_TYPE_OFF_T
-AC_TYPE_SSIZE_T
-AC_CHECK_HEADER_STDBOOL
-AC_TYPE_UINT32_T
-AC_TYPE_UINT64_T
-AC_TYPE_UINT8_T
+AC_CHECK_HEADERS( [ctype.h curl/curl.h errno.h getopt.h openssl/bio.h openssl/buffer.h openssl/evp.h openssl/hmac.h pthread.h pwd.h semaphore.h stdarg.h stdio.h stdlib.h string.h sys/stat.h sys/time.h sys/types.h time.h unistd.h], [], [AC_MSG_ERROR(["Failed to locate some required header files!  See previous errors."])] )
 
 # Checks for library functions.
-#AC_CHECK_FUNCS([bzero ftruncate memset strerror strtol strtoul])
-#AC_CHECK_FUNCS([malloc])
+AC_CHECK_FUNCS([memset strerror strtoul strtoull malloc])
 
 
 AC_CHECK_LIB([pthread], [pthread_create], [], [AC_MSG_ERROR(["Could not locate libpthread!"])])

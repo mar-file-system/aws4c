@@ -5,6 +5,7 @@ s3_put
 sqs_example
 *.tmp
 
+*~
 *.a
 *.in
 *.o
